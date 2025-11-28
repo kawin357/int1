@@ -1,0 +1,725 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* chatz.IO Design System - Integer.IO Branding with Violet & Green Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Card Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --chat-card: 0 0% 99%;
+    --chat-card-shadow: 222.2 25% 90%;
+
+    /* Popover Colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Integer.IO Brand Colors - Violet & Green */
+    --primary: 252 83% 57%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 252 83% 50%;
+    --primary-glow: 252 83% 70%;
+
+    --secondary: 162 73% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 162 73% 40%;
+
+    /* Chat Interface Colors */
+    --chat-bubble-user: 252 83% 57%;
+    --chat-bubble-user-foreground: 0 0% 100%;
+    --chat-bubble-ai: 162 73% 46%;
+    --chat-bubble-ai-foreground: 0 0% 100%;
+    --chat-bubble-system: 220 13% 91%;
+    --chat-bubble-system-foreground: 222.2 84% 4.9%;
+
+    /* Muted Colors */
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* Accent Colors */
+    --accent: 252 83% 97%;
+    --accent-foreground: 252 83% 30%;
+
+    /* Status Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 162 73% 46%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --input-focus: 252 83% 57%;
+    --ring: 252 83% 57%;
+
+    /* Link Colors */
+    --link: 252 83% 57%;
+    --link-hover: 252 83% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(252 83% 57%), hsl(162 73% 46%));
+    --gradient-chat: linear-gradient(180deg, hsl(0 0% 100%), hsl(252 83% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(252 83% 60%), hsl(252 83% 45%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 13% 69% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 13% 69% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 13% 69% / 0.1);
+    --shadow-chat: 0 4px 12px -2px hsl(252 83% 57% / 0.15);
+    --shadow-hover: 0 8px 25px -8px hsl(252 83% 57% / 0.25);
+
+    /* Animation Timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Pulse Glow Animation */
+    --pulse-glow-opacity: 0.6;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Base Colors - Enhanced with purple/blue tints */
+    --background: 240 50% 8%;
+    --foreground: 210 40% 98%;
+
+    /* Card Colors - Enhanced with gradient-ready colors */
+    --card: 240 45% 10%;
+    --card-foreground: 210 40% 98%;
+    --chat-card: 240 40% 12%;
+    --chat-card-shadow: 240 50% 6%;
+
+    /* Popover Colors */
+    --popover: 240 45% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Integer.IO Brand Colors - Enhanced Violet & Green (Dark Mode) */
+    --primary: 270 80% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 270 80% 70%;
+    --primary-glow: 270 80% 75%;
+
+    --secondary: 162 73% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 162 73% 60%;
+
+    /* Chat Interface Colors */
+    --chat-bubble-user: 252 83% 60%;
+    --chat-bubble-user-foreground: 0 0% 100%;
+    --chat-bubble-ai: 162 73% 50%;
+    --chat-bubble-ai-foreground: 0 0% 100%;
+    --chat-bubble-system: 217.2 32.6% 17.5%;
+    --chat-bubble-system-foreground: 210 40% 98%;
+
+    /* Muted Colors */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent Colors */
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Status Colors */
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 162 73% 55%;
+    --success-foreground: 222.2 84% 4.9%;
+    --warning: 45 93% 55%;
+    --warning-foreground: 222.2 84% 4.9%;
+
+    /* UI Elements */
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --input-focus: 252 83% 65%;
+    --ring: 252 83% 65%;
+
+    /* Gradients - Enhanced with purple/blue tints */
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 65%), hsl(210 80% 60%));
+    --gradient-chat: linear-gradient(180deg, hsl(240 50% 8%), hsl(270 60% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 80% 65%), hsl(210 80% 55%));
+
+    /* Shadows - Enhanced with colored glows */
+    --shadow-sm: 0 1px 2px 0 hsl(270 80% 30% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(270 80% 30% / 0.4);
+    --shadow-lg: 0 10px 15px -3px hsl(270 80% 40% / 0.4);
+    --shadow-chat: 0 4px 12px -2px hsl(270 80% 65% / 0.3);
+    --shadow-hover: 0 8px 25px -8px hsl(270 80% 65% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* Prevent body scroll when modal is open */
+  body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+@layer components {
+
+  /* Chat Interface Components */
+  .chat-container {
+    @apply h-full flex flex-col bg-gradient-to-br from-background to-accent/5;
+  }
+
+  .chat-message {
+    @apply mb-4 animate-fade-in;
+  }
+
+  .chat-bubble {
+    @apply px-4 py-3 rounded-2xl max-w-xs sm:max-w-md shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .chat-bubble-user {
+    @apply bg-primary text-primary-foreground ml-auto;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-secondary text-secondary-foreground mr-auto;
+  }
+
+  .chat-input {
+    @apply w-full px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-input bg-white text-foreground focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-200 placeholder:text-muted-foreground text-sm sm:text-base font-medium;
+  }
+
+  .brand-button {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+
+  .message-content a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    transition: all 0.2s ease;
+  }
+
+  .message-content a:hover {
+    color: hsl(var(--primary-hover));
+    text-decoration: underline;
+  }
+
+  .brand-button-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .brand-button-primary:hover {
+    background: hsl(var(--primary-hover));
+  }
+
+  .brand-button-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .brand-button-secondary:hover {
+    background: hsl(var(--secondary-hover));
+  }
+
+  .brand-button-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Loading Animation */
+  .typing-indicator {
+    @apply flex space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-muted-foreground rounded-full animate-pulse;
+  }
+
+  .typing-dot:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  /* Enhanced Pulse Glow Animation */
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      transform: scale(1) rotateY(0deg);
+      filter: drop-shadow(0 0 20px hsl(var(--primary) / 0.4)) drop-shadow(0 0 40px hsl(var(--secondary) / 0.2));
+    }
+
+    50% {
+      transform: scale(1.05) rotateY(5deg);
+      filter: drop-shadow(0 0 30px hsl(var(--primary) / 0.6)) drop-shadow(0 0 60px hsl(var(--secondary) / 0.3));
+    }
+  }
+
+  /* Glass Card Background for Chat Header */
+  .glass-card {
+    width: 240px;
+    height: 360px;
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(34px);
+    -webkit-backdrop-filter: blur(34px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 0 28px 14px rgba(255, 255, 255, 1.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent);
+  }
+
+  .glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.8),
+        transparent,
+        rgba(255, 255, 255, 0.3));
+  }
+
+  /* Enhanced 3D Effects */
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Code Block Enhancements */
+  .code-block-enhanced {
+    background: linear-gradient(135deg,
+        rgba(15, 23, 42, 0.95) 0%,
+        rgba(30, 41, 59, 0.95) 50%,
+        rgba(15, 23, 42, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 30px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Mobile Action Buttons */
+  .mobile-action-btn {
+    @apply p-2 rounded-lg bg-white/90 backdrop-blur-sm border border-slate-200 shadow-md hover:shadow-lg transition-all duration-200 text-slate-600 hover:text-blue-600 hover:bg-blue-50;
+  }
+
+  /* Enhanced Chat Bubbles */
+  .chat-bubble-enhanced {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(248, 250, 252, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 2px 4px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  /* Floating Animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+
+    66% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+  }
+
+  /* 3D Floating Orbs Background */
+  .bg-3d-orbs {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-3d-orbs::before,
+  .bg-3d-orbs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float3D 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .bg-3d-orbs::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.4), transparent 70%);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .bg-3d-orbs::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.4), transparent 70%);
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 7s;
+  }
+
+  @keyframes float3D {
+
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+
+    50% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    75% {
+      transform: translate(20px, 30px) scale(1.05);
+    }
+  }
+
+  /* Mesh Gradient Background */
+  .mesh-gradient {
+    background:
+      radial-gradient(at 0% 0%, hsla(252, 83%, 97%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(162, 73%, 96%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(220, 70%, 97%, 0.5) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(252, 83%, 97%, 0.5) 0px, transparent 50%);
+    animation: meshMove 20s ease infinite;
+  }
+
+  @keyframes meshMove {
+
+    0%,
+    100% {
+      background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+    }
+
+    50% {
+      background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%;
+    }
+  }
+
+  /* Shimmer Effect */
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: -200px 0;
+    }
+
+    to {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  /* Enhanced Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 0.6),
+        rgba(139, 92, 246, 0.6));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 0.8),
+        rgba(139, 92, 246, 0.8));
+  }
+
+  /* Global link styling for AI responses */
+  a[target="_blank"] {
+    color: hsl(252 83% 57%) !important;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  a[target="_blank"]:hover {
+    color: hsl(252 83% 45%) !important;
+    text-decoration: underline;
+  }
+
+  /* Ensure links in chat messages are visible */
+  .chat-message a {
+    color: hsl(252 83% 57%) !important;
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+  }
+
+  /* Hide scrollbars in code blocks while maintaining scroll functionality */
+  .code-scroll-hidden {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+  }
+
+  .code-scroll-hidden::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  /* Mobile Performance Optimizations */
+  @media (max-width: 768px) {
+
+    /* Reduce animation complexity on mobile */
+    .animate-float,
+    .animate-pulse-glow {
+      animation: none;
+    }
+
+    /* GPU acceleration for smoother scrolling and interactions */
+    .chat-container,
+    .chat-messages,
+    header,
+    footer,
+    .message-container {
+      will-change: transform;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-perspective: 1000px;
+      perspective: 1000px;
+    }
+
+    /* Fix black/white glitches */
+    * {
+      -webkit-transform: translateZ(0);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Optimize backdrop blur on mobile */
+    .backdrop-blur-xl,
+    .backdrop-blur-lg {
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+
+    /* Optimize scrolling performance */
+    .overflow-y-auto,
+    .overflow-x-hidden {
+      contain: layout style paint;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Reduce motion for battery saving */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Optimize mesh gradient on mobile */
+    .mesh-gradient {
+      animation: none;
+      background: linear-gradient(135deg,
+          hsl(252 83% 97% / 0.3) 0%,
+          hsl(162 73% 96% / 0.3) 100%);
+    }
+
+    /* Simplify 3D orbs on mobile */
+    .bg-3d-orbs::before,
+    .bg-3d-orbs::after {
+      animation: none;
+      opacity: 0.15;
+    }
+
+    /* Optimize message rendering */
+    .chat-message,
+    .chat-bubble {
+      contain: layout style;
+    }
+
+
+    /* Simplified gradients for better mobile performance */
+    .bg-gradient-to-r,
+    .bg-gradient-to-br {
+      will-change: auto;
+    }
+
+    /* Ensure input box stays fixed at bottom on mobile */
+    .chat-input-fixed {
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+}
+
+/* Global rule to ensure input is always fixed */
+.chat-input-fixed {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 100 !important;
+  padding-bottom: env(safe-area-inset-bottom, 20px) !important;
+}
+
+/* Chat Container Layout */
+.chat-container {
+  height: 100dvh;
+  /* Fallback for modern browsers */
+  height: -webkit-fill-available;
+  /* iOS Safari fix */
+}
+
+/* KaTeX Formula Styling */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.katex-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.katex {
+  font-size: 1.1em;
+  color: #1e293b;
+}
+
+.katex-error {
+  color: #dc2626;
+  background: #fee2e2;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #dc2626;
+}
+
+/* Force settings menu to appear above everything */
+.settings-menu-backdrop {
+  z-index: 9998 !important;
+  position: fixed !important;
+}
+
+.settings-menu-dropdown {
+  z-index: 9999 !important;
+  position: absolute !important;
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chatz-io.netlify.app/sitemap.xml

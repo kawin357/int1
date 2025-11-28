@@ -1,0 +1,160 @@
+/* Enhanced scrolling behavior for chat interface */
+.chat-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.chat-messages {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+/* Prevent content jumping during typing */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+/* Ensure content doesn't collapse */
+.message-content {
+  min-height: fit-content;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Smooth transitions for code blocks */
+.code-block-container {
+  transition: all 0.3s ease-in-out;
+  transform: translateZ(0);
+}
+
+/* Fixed input area */
+.chat-input-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Prevent layout shifts */
+.response-container {
+  contain: layout style;
+  min-height: fit-content;
+}
+
+/* Fixed button positioning to prevent box shaking */
+.message-container {
+  position: relative;
+}
+
+/* Background response handling */
+.chat-container.background-mode {
+  opacity: 0.8;
+}
+
+.chat-container.background-mode .chat-messages {
+  pointer-events: none;
+}
+
+.chat-container.background-mode .chat-input-fixed {
+  opacity: 0.6;
+}
+
+/* Enhanced mobile scrolling */
+@media (max-width: 768px) {
+
+  /* Prevent page scroll when keyboard appears */
+  html,
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .chat-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport height for mobile */
+    overflow: hidden;
+  }
+
+  .chat-messages {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: none;
+    position: relative;
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+  }
+
+  .message-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .message-container {
+    padding-right: 0;
+  }
+
+  /* Prevent body scroll on iOS when keyboard appears */
+  body.keyboard-open {
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Keep input area within viewport */
+  .chat-input-fixed {
+    position: fixed !important;
+    bottom: 0 !important;
+    width: 100%;
+    z-index: 100;
+    /* Don't use env(safe-area-inset-bottom) - keep it at viewport bottom */
+  }
+
+  .chat-input-fixed textarea {
+    max-height: 60px;
+    overflow-y: auto;
+    resize: none;
+  }
+
+  /* When keyboard opens, keep input at bottom of viewport */
+  body.keyboard-open .chat-input-fixed {
+    position: fixed !important;
+    bottom: 0 !important;
+    /* Input stays at bottom of visible viewport, keyboard pushes it up naturally */
+  }
+}
+
+/* Desktop button positioning */
+@media (min-width: 769px) {
+  .message-container {
+    padding-right: 50px;
+  }
+}
